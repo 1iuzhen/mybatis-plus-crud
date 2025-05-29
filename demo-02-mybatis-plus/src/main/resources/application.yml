@@ -1,0 +1,29 @@
+spring:
+  application:
+    name: demo-02-mybatis-plus
+
+
+  # 数据源配置
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/mybatis_plus?useUnicode=true&characterEncoding=UTF-8&autoReconnect=true&serverTimezone=Asia/Shanghai&rewriteBatchedStatements=true
+    username: root
+    password: Lz15865817079
+    type: com.zaxxer.hikari.HikariDataSource
+mybatis-plus:
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package:
+  configuration:
+    # 必须开启驼峰，查的时候会用到
+    map-underscore-to-camel-case: true
+    cache-enabled: false #是否开启二级缓存默认不开启
+  #global-config:
+    #db-config:
+      #id-type: assign_id # id为雪花算法生成（默认），但是全局的，不如注解优先级高
+      #update-strategy: not_null # 更新策略：只更新非空字段
+server:
+  port: 8081
+
+logging:
+  level:
+    root: INFO
